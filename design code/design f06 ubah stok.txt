@@ -1,0 +1,4 @@
+procedure ubah_stok(input x : file, input GAMEID : string, input jumlah : integer)
+#kamus lokal
+assign = (data_game, "game.csv")
+open(data_game)

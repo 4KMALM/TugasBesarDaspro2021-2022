@@ -1,0 +1,7 @@
+procedure help(input : role)
+#kamus lokal 
+# role : string
+if role = "Admin" then
+    output(")
+else if role = "User" then
+    output(")
