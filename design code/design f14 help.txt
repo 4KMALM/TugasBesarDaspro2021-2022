@@ -9,6 +9,7 @@ if role = "Admin" then
     output("list_game_toko - melihat list game yang ada di toko")
     output("cari_game_toko - mencari game yang tersedia di toko")
     output("top_up - menambahkankan saldo pengguna")
+    output("exit - keluar dari aplikasi binomo")
 else if role = "User" then
     output("list_game_toko - memberikan list game yang ada di toko")
     output("beli_game - membeli game dengan GAMEID tertentu")
@@ -16,3 +17,4 @@ else if role = "User" then
     output("cari_game_saya - mecari game tertentu dari daftar game anda")
     output("cari_game_toko - mencari game yang tersedia di toko")
     output("riwayat - melihat riwayat pembelian game anda")
+    output("exit - keluar dari aplikasi binomo")
