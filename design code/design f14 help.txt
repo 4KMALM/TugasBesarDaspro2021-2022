@@ -2,6 +2,17 @@ procedure help(input : role)
 #kamus lokal 
 # role : string
 if role = "Admin" then
-    output(")
+    output("registrasi - mendaftarkan pengguna baru")
+    output("tambah_game - menambah game baru pada toko")
+    output("ubah_game - mengubah game pada toko game untuk GAMEID tertentu")
+    output("ubah_stok - mengubah stok GAMEID tertentu")
+    output("list_game_toko - melihat list game yang ada di toko")
+    output("cari_game_toko - mencari game yang tersedia di toko")
+    output("top_up - menambahkankan saldo pengguna")
 else if role = "User" then
-    output(")
+    output("list_game_toko - memberikan list game yang ada di toko")
+    output("beli_game - membeli game dengan GAMEID tertentu")
+    output("list_game_saya - melihat list game yang saya miliki")
+    output("cari_game_saya - mecari game tertentu dari daftar game anda")
+    output("cari_game_toko - mencari game yang tersedia di toko")
+    output("riwayat - melihat riwayat pembelian game anda")
