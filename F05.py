@@ -19,8 +19,7 @@ def ubah_game(arrGame):
 #   ID : string
 #   idx : Int
 #   ulang : Char
-#   nama, kategori : string
-#	tahun, harga : Int
+#   nama, kategori, tahun, harga : string
 
 # ALGORITMA
     ulang = 'Y' # inisialisasi
