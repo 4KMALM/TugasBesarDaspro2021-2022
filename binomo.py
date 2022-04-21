@@ -38,5 +38,6 @@ while command :
     print("silahkan masukkan perintah anda")
     print("untuk membuka daftar perintah ketik \"help\"")
     perintah = input()
+    
 
     
