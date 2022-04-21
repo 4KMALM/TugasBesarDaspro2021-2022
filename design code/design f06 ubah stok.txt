@@ -1,4 +1,30 @@
-procedure ubah_stok(input x : file, input GAMEID : string, input jumlah : integer)
+procedure ubah_stok(input game_data : array, input GAMEID : string, input jumlah : integer)
 #kamus lokal
-assign = (data_game, "game.csv")
-open(data_game)
+game_data : array
+GAMEID : string
+jumlah : string
+i : integer
+length : integer
+x : integer
+game : string
+#algoritma searching game dengan GAMEID kemudian menambahkan nilainya pada stok sambil melakukan validasi 
+# if invalid : nilai tidak diubah
+i <- 1
+length <- game_data.Neff
+game <- ""
+i traversal [1...length]
+    if (game_data[i][0] == GAMEID) then
+        x <- int(game_data[i][5])
+        game <- game_data[i][1]
+        if (x + jumlah >= 0) then
+            x += jumlah
+            game_data[i][5] <- string(x)
+            output("stok game " + game_data[i][1] + " berhasil diubah, stok sekarang : " + game_data[i][5])
+            return game_data
+        else 
+            output("Stok tidak dapat diubah, stok sekarang" + game_data[i][5])
+            return game_data
+if game = "" then
+    output("Tidak ada game dengan GAMEID tersebut")
+    return game_data
+
