@@ -26,11 +26,26 @@ def tambah_game(x):
             else:
                 pass
 
+        try:
+            for index in range(0, 4):
+                if index == 3:
+                    if int(new_game_data[3]) < 0: # cek harga
+                        invalid += 1
+                    else:
+                        pass
+                elif index == 4:
+                    if int(new_game_data[4]) < 0: # cek stok awal
+                        invalid += 1
+                    else:
+                        pass
+        except ValueError:
+            invalid += 1
+
         if invalid != 0:
-            print("pesan error")
+            print("Masukan data dengan benar")
         else:
             x += [[last_game_id()] + new_game_data]
-            print("jadi")
+            print("Game berhasil ditambahkan")
             salah = False
     return x
 
