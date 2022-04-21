@@ -33,3 +33,17 @@ def length(x):
     for i in x:
         count += 1
     return count
+
+def FindGame(arrGame, ID):
+# return indeks ditemukan game dalam array, jika tidak ditemukan, kembalikan -1
+
+# KAMUS LOKAL
+#   i : Int
+
+# ALGORITMA
+    i = 1   # data dimulai dari indeks 1
+    while (i < arrGame[1]) and (arrGame[0][i][0] != ID):
+        i = i + 1
+    if (arrGame[0][i][0] != ID):
+        i = -1
+    return i
