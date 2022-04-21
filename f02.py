@@ -6,9 +6,8 @@ def encrypt(password) :
 def decrypt(password) :
     pass
 
-def register(x,nama,username,password) :
+def register(user_data,nama,username,password) :
     username_sama = True
-    user_data = x
     banyak_user = length(user_data)
     data_invalid = 0
     while username_sama :
