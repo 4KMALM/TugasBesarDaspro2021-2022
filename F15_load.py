@@ -29,9 +29,9 @@ def buat_tabData(data):
     with open(data, 'r') as f:
         for line in f:
             sum_line += 1
-    # sum_line = 1 maka data kosong (hanya header)
-
-    tabData = [[[] for i in range(sum_line)], sum_line]
+    
+    # sum_line-1 = 0 maka data kosong (hanya header)
+    tabData = [[[] for i in range(sum_line)], sum_line-1]
     # mengakses tabData = ([listData],Neff)
     # tabData[0] -> akses listData; tabData[1] -> akses Neff
     nextline = '\n'; delimiter = ';'
