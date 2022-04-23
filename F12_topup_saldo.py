@@ -1,6 +1,6 @@
 from primitif_function import *
 
-def topUp(arrUser):
+def topup(arrUser):
     usernm = input("Masukan username: ")
     plusSldo = int(input("Masukan saldo: "))
     found = search_found(usernm,1,arrUser)
