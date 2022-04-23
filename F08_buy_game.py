@@ -1,7 +1,4 @@
-from primitif_function import *
-
 def buy_game(user_id, arrGame, arrUser, arrKepemilikan, arrRiwayat):
-
 # KAMUS LOKAL
 # type user : <id, username, nama, password, role, saldo : string
 #               >
@@ -22,45 +19,54 @@ def buy_game(user_id, arrGame, arrUser, arrKepemilikan, arrRiwayat):
 # nmGame,thnRilis : string
 
 # ALGORITMA
-    id_game = input("Masukan ID Game: ")
+    id_game = input("Masukkan ID Game: ")
 
-    kepemilikan = [id_game,id,'','','','']
+    if not(search_found((id_game,0,arrGame))): # cek apakah id game tidak ada
+        print("Tidak ada game dengan id tersebut")
 
-    found = search_found(id_game,0,arrKepemilikan) # cek apakah game sudah dimiliki user atau belum
-    idx_game = get_idx(id_game,0,arrGame) # indeks game yang dibeli
-    idx_user = get_idx(id_game,0,arrUser) # indeks user
+    else: # id_game tersedia di toko
+        # list game yang dimiliki user
+        gameUser = [[],0]
+        for i in range(arrKepemilikan[1]):
+            if arrKepemilikan[0] == user_id:
+                gameUser[0] += ([arrKepemilikan[0]])
+                gameUser[1] += 1
     
-    if found: # id Game ditemukan dalam kepemilikan user
-        print("Anda sudah memiliki Game tersebut!")
-
-    else: # user belum memiliki game
-        # Cek saldo yang dimiliki user
-        cekSldo = int(get_thing_based(id,0,arrUser,5))
-        # Cek harga game yang akan dibeli
-        cekHrgaGm = int(get_thing_based(id_game,0,arrGame,4))
-        # Cek nama game yang akan dibeli
-        nmGame = get_thing_based(id_game,0,arrGame,1)
-        # Cek tahun rilis game yang akan dibeli
-        thnRilis = get_thing_based(id_game,0,arrGame,3)
-
-        if cekSldo >= cekHrgaGm: # Jika saldo pengguna cukup untuk membeli game
-            # Cek stok game di toko
-            cekStok = int(get_thing_based(id_game,0,arrGame,5))
-            if cekStok > 0 : # Stok tersedia di toko
-                arrUser[0][idx_user][5] = str(cekSldo - cekHrgaGm) # Mengganti data saldo pada array User
-                arrGame[0][idx_game][5] = str(cekStok-1) # Mengganti jumlah stok pada array Game
-                arrKepemilikan += [kepemilikan] # Menambah game ke daftar kepemilikan user
-                arrRiwayat += [[id_game, nmGame, cekHrgaGm, id, thnRilis ]] # Menambah riwayat pembelian game
-                print(f"Game {nmGame} berhasil dibeli")
-            elif cekStok == 0 : # stok game = 0
-                print("Stok Game tersebut sedang habis")
-
-        else: # Saldo pengguna tidak cukup untuk membeli game
-            print("Saldo anda tidak cukup untuk membeli Game tersebut!")
-    return(arrGame, arrUser, arrKepemilikan, arrRiwayat)
-
-
+        gameFound = False
+        for i in range(gameUser[1]):
+            if id_game == gameUser[0][i]:
+                gameFound = True
+                break
         
+        if not(gameFound):
+            print("Anda sudah memiliki Game tersebut!")
 
+        else: # user belum memiliki game
+            # Cek saldo yang dimiliki user
+            cekSldo = int(get_thing_based(id,0,arrUser,5))
+            # Cek harga game yang akan dibeli
+            cekHrgaGm = int(get_thing_based(id_game,0,arrGame,4))
 
+            if cekSldo < cekHrgaGm:
+                print("Saldo anda tidak cukup untuk membeli Game tersebut!")
+            else:
+                # Cek stok game di toko
+                cekStok = int(get_thing_based(id_game,0,arrGame,5))
+                if cekStok == 0:
+                    print("Stok Game tersebut sedang habis")
+                else: # cekStock > 0
+                    idx_game = get_idx(id_game,0,arrGame) # indeks game yang dibeli
+                    idx_user = get_idx(user_id,0,arrUser) # indeks user
 
+                    # Cek nama game yang akan dibeli
+                    nmGame = get_thing_based(id_game,0,arrGame,1)
+                    # Tahun beli game
+                    year_now = str(datetime.datetime.now().year)
+
+                    arrUser[0][idx_user][5] = str(cekSldo - cekHrgaGm) # Mengganti data saldo pada array User
+                    arrGame[0][idx_game][5] = str(cekStok-1) # Mengganti jumlah stok pada array Game
+
+                    arrKepemilikan[0] += [[id_game,user_id]] # Menambah game ke daftar kepemilikan user
+                    arrRiwayat[0] += [[id_game, nmGame, cekHrgaGm, user_id, year_now]]
+                    print(f"Game {nmGame} berhasil dibeli")
+    return(arrGame, arrUser, arrKepemilikan, arrRiwayat)
