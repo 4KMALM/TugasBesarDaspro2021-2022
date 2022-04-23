@@ -24,36 +24,50 @@ if path_folder != None:
             if validasi_input(user_input, pengguna[4]) :
                 if user_input == "register":
                     # register()
+                    # arrUser bertambah
                     pass
                 elif user_input == "tambah_game":
-                    # tambah_game()z
+                    # tambah_game()
+                    # arrGame bertambah
                     pass
                 elif user_input == "ubah_stock":
                     # ubah_stock()
+                    # arrGame[0][suatu_id][5] -> indeks stock berubah
                     pass
                 elif user_input == "topup":
                     # topup
+                    # arrUser[0][suatu id][5] -> indeks saldo bertambah
                     pass
                 elif user_input == "buy_game":
                     # buy_game()
+                    # jika iduser belum punya game
+                    # arrRiwayat bertambah
+                    # arrKepemilikan bertambah
                     pass
                 elif user_input == "list_game":
                     # list_game()
+                    # pakai arrKepemilikan an arrGame
                     pass
                 elif user_input == "search_my_game":
                     # search_my_game()
+                    # pakai arrKepemilikan dan arrGame
                     pass
                 elif user_input == "riwayat":
                     # riwayat()
+                    # pakai arrRiwayat 
                     pass
                 elif user_input == "list_game_toko":
                     # list_game_toko()
+                    # pakai arrGame
+                    # jika arrGame berubah list kembali sesuai id
                     pass
                 elif user_input == "search_game_at_store":
                     # search_game_at_store()
+                    # pakai arrGame
                     pass
                 elif user_input == "save":
                     # save()
+                    # pakai semua array
                     pass
                 elif user_input == "exit":
                     # exit()
