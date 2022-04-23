@@ -1,17 +1,21 @@
 from primitif_function import *
 
 def encrypt(password) :
-    pass
+    a = 12345
+    b = 3334
+    c = ""
+    for i in password :
+        x = ord(i) - ord("0")
+        y = ((a*x + b)%75) + 48
+        c += chr(y)
+    return c
 
 def decrypt(password) :
     pass
 
-def register(arrUser) :
-    nama = input("Masukan nama: ")
-    username = input("Masukan username: ")
-    password = input("Masukan password: ")
+def register(x,nama,username,password) :
     username_sama = True
-    user_data = arrUser
+    user_data = x[0]
     banyak_user = length(user_data)
     data_invalid = 0
     while username_sama :
@@ -27,6 +31,6 @@ def register(arrUser) :
         else :
             print("Username tersedia!")
             username_sama = False
-    new_data = [str(1+banyak_user), username, nama, password,"User","0"]
+    new_data = [ str(1+banyak_user), username, nama, password,"User","0"]
     user_data += [new_data]
     return user_data
