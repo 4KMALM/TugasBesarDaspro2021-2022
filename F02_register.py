@@ -6,9 +6,12 @@ def encrypt(password) :
 def decrypt(password) :
     pass
 
-def register(x,nama,username,password) :
+def register(arrUser) :
+    nama = input("Masukan nama: ")
+    username = input("Masukan username: ")
+    password = input("Masukan password: ")
     username_sama = True
-    user_data = x
+    user_data = arrUser
     banyak_user = length(user_data)
     data_invalid = 0
     while username_sama :
@@ -24,6 +27,6 @@ def register(x,nama,username,password) :
         else :
             print("Username tersedia!")
             username_sama = False
-    new_data = [ str(1+banyak_user), username, nama, password,"User","0"]
+    new_data = [str(1+banyak_user), username, nama, password,"User","0"]
     user_data += [new_data]
     return user_data
