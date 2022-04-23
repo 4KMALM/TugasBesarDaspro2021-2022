@@ -6,7 +6,7 @@ def topup(arrUser):
     found = search_found(usernm,1,arrUser)
     print()
     if found:
-        cekSaldo = get_thing_based(usernm,1,arrUser,5)
+        cekSaldo = int(get_thing_based(usernm,1,arrUser,5))
         cekNama = get_thing_based(usernm,1,arrUser,2)
         totalSaldo = cekSaldo + plusSldo
         if totalSaldo >= 0 :
