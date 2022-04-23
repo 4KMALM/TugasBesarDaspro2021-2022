@@ -18,7 +18,7 @@ def load():
                 break
 
 # cara penggunaan
-# $ python F15-load.py nama_folder
+# $ python F15_load.py nama_folder
 # ouput; print(load())
 # Disk:/..pathfolder../nama_folder
 

@@ -10,7 +10,7 @@ def riwayat(riwayat, user_id) :
         for pembelian in riwayat_user :
             for i in range(5) :
                 if i != 3 :
-                    print(data[i],end="|")
+                    print(pembelian[i],end="|")
             print()
     else :
         print("Anda belum pernah melakukan pembelian")
