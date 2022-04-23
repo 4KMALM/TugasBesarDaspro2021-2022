@@ -6,7 +6,7 @@ def ubah_stock(arrGame):
     # temukan id
     search_found = get_idx(id_game,0,arrGame)
 
-    if id_found != -1:
+    if search_found:
         id_found = get_idx(id_game,0,arrGame)
         # cari nama game dan stock awalnya
         name_game = get_thing_based(id_game,0,arrGame,1)
