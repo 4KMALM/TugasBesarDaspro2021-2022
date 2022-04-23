@@ -13,6 +13,7 @@ def topup(arrUser):
         if totalSaldo >= 0 :
             arrUser[0][id_found][5] = totalSaldo
             print(f"Top up berhasil. Saldo {cekNama} bertambah menjadi {totalSaldo}")
+            return(arrUser)
         else:
             print(f"Masukan tidak valid")
 
