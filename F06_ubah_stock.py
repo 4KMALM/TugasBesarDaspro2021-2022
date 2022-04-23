@@ -20,6 +20,6 @@ def ubah_stock(arrGame):
             fnl_stock = init_stock + stock_in
             arrGame[0][id_found][5] = fnl_stock
             print(f"Stok game {name_game} berhasil dikurangi. Stok sekarang: {fnl_stock}")
-            return(arrGame)
     else:
         print("Tidak ada game dengan ID tersebut!")
+    return(arrGame)
