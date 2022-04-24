@@ -7,12 +7,12 @@ from F06_ubah_stock import ubah_stock
 from F07_list_game_toko import list_game_toko
 from F08_buy_game import buy_game
 from F09_list_game import list_game
-from F10_search_my_game import SearchInven
+from F10_search_my_game import search_my_game
 from F11_search_game_at_store import search_game_at_store
 from F12_topup import topup
 from F13_riwayat import riwayat
 from F14_help import help
-from F15_load import load, buat_tabData
+from F15_load import load,load_DaaftarData
 from F16_save import save
 from F17_exit import exit
 
@@ -43,10 +43,10 @@ elif path_folder != None:
     # Pembuatan memori
     # Setiap array pasti memiliki 1 data yaitu header, kecuali
     # Array user pasti memiliki 2 data yaitu header dan 1 data terdefinisi
-    arrGame = buat_tabData(os.path.join(path_folder, 'game.csv'))
-    arrUser = buat_tabData(os.path.join(path_folder, 'user.csv')) 
-    arrRiwayat = buat_tabData(os.path.join(path_folder, 'riwayat.csv'))
-    arrKepemilikan = buat_tabData(os.path.join(path_folder, 'kepemilikan.csv'))
+    arrGame = load_DaaftarData(os.path.join(path_folder, 'game.csv'))
+    arrUser = load_DaaftarData(os.path.join(path_folder, 'user.csv')) 
+    arrRiwayat = load_DaaftarData(os.path.join(path_folder, 'riwayat.csv'))
+    arrKepemilikan = load_DaaftarData(os.path.join(path_folder, 'kepemilikan.csv'))
     
     # Inisialisasi
     isLogin = False; exitGame = False; pengguna = ['id', 'username', 'nama', 'password', 'role', 'saldo']
@@ -57,29 +57,28 @@ elif path_folder != None:
         if isLogin :
             if validasi_input(user_input, pengguna[4]) :
                 if user_input == "register":
-                    arrUser = register(arrUser)
+                    register(arrUser)
 
                 elif user_input == "tambah_game":
-                    arrGame = tambah_game(arrGame)
-                    pass
-
+                    tambah_game(arrGame)
+                    
                 elif user_input == "ubah_stok":
-                    arrGame = ubah_stock(arrGame)
+                    ubah_stock(arrGame)
 
                 elif user_input == "topup":
-                    arrUser = topup(arrUser)
+                    topup(arrUser)
                 
                 elif user_input == "ubah_game":
-                    arrGame = ubah_game(arrGame)
+                    ubah_game(arrGame)
 
                 elif user_input == "buy_game":
-                    arrGame, arrUser, arrKepemilikan, arrRiwayat = buy_game(pengguna[0], arrGame, arrUser, arrKepemilikan, arrRiwayat)
+                    buy_game(pengguna[0], arrGame, arrUser, arrKepemilikan, arrRiwayat)
 
                 elif user_input == "list_game":
                     list_game(arrKepemilikan,arrGame,pengguna[0])
                 
                 elif user_input == "search_my_game":
-                    SearchInven(arrGame,arrKepemilikan,pengguna[0])
+                    search_my_game(arrGame,arrKepemilikan,pengguna[0])
 
                 elif user_input == "riwayat":
                     riwayat(arrRiwayat, pengguna[0])
