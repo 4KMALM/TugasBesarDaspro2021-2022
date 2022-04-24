@@ -27,11 +27,9 @@ def buat_tabData(data):
 # print(buat_tabData("game.csv"))
 # [[['id', 'nama', 'kategori', 'tahun_rilis', 'harga', 'stock'], ['GAME001', 'Dying Light', '2015', 'Shoting', '250000', '10'], ['GAME002', 'White Shadows', '2016', 'Adventure', '215000', '15'], ['GAME003', 'BNMO - Play Along With Crypto', 'Adventure', '2022', '100000', '1'], ['GAME004', 'Dasar Pemrograman', 'Coding', '2021', '0', '10'], ['GAME005', 'Python Gemink', 'Coding', '1991', '69000', '999'], ['GAME006', 'Daspro Impact', 'Coding', '2018', '50000', '111']], 6]
 # Ket: 1 : ada 1 data (selain judul)
-print(buat_tabData('Test1user.csv'))
-[[['id', 'username', 'nama', 'password', 'role', 'saldo'], ['1', 'username3', 'Kinanti Wening Asih', 'pass3', 'user', '10000000'], ['2', 'username4', 'Nadine Aliya Putri', 'pass4', 'user', '0']], 2]
+# print(buat_tabData('Test1user.csv'))
+# [[['id', 'username', 'nama', 'password', 'role', 'saldo'], ['1', 'username3', 'Kinanti Wening Asih', 'pass3', 'user', '10000000'], ['2', 'username4', 'Nadine Aliya Putri', 'pass4', 'user', '0']], 2]
 # Ket: 2 : ada 2 data (selain judul)
-print(buat_tabData('user.csv'))
-print(buat_tabData('user.csv'))
 
 
 # ---------- primitif lain -----------

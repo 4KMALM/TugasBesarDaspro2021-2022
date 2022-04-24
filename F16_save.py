@@ -12,13 +12,14 @@ from primitif_function import length
 # array kepemilikan
 
 # digunakan khusus saving 4 file eksternal
-def save(namafolder,arrGame, arrUser, arrRiwayat, arrKepemilikan) :
+def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
     # Kamus Lokal
     # Array File : Array of tuple (TabData, SeqFile of Tab Data)
     # TabData 
     # namafile : string namafile (by default, nama.csv)
     # namafolder : string directory
     # Array
+    namafolder = input("Masukkan nama folder penyimpanan : ")
     ArrayFile = [(arrGame,'game.csv'),(arrUser,'user.csv'),(arrRiwayat,'riwayat.csv'),(arrKepemilikan,'kepemilikan.csv')]
     list_dir = os.listdir(os.getcwd())
     if namafolder in list_dir :
