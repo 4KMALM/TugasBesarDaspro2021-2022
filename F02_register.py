@@ -1,4 +1,5 @@
 from primitif_function import *
+import time 
 
 def encrypt(password) :
     a = 12345
@@ -16,7 +17,7 @@ def decrypt(password) :
 def register(x,nama,username,password) :
     username_sama = True
     user_data = x[0]
-    banyak_user = length(user_data)
+    banyak_user = x[1]
     data_invalid = 0
     while username_sama :
         for data in user_data :
@@ -29,8 +30,12 @@ def register(x,nama,username,password) :
             username = input()
             data_invalid = 0
         else :
-            print("Username tersedia!")
+            print("Username tersedia!, silahkan menunggu proses")
             username_sama = False
-    new_data = [ str(1+banyak_user), username, nama, password,"User","0"]
+    new_data = [ str(x[1]+1), username, nama, password,"User","0"]
     user_data += [new_data]
-    return user_data
+    x[1] += 1
+    time.sleep(3)
+    print()
+    print("Pengguna berhasil ditambahkan!")
+    return x
