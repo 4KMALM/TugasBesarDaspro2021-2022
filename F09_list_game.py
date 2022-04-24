@@ -1,10 +1,5 @@
 from primitif_function import *
 
-def isInList(nama,array) :
-    for i in array :
-        if nama == i :
-            return True
-    return False 
 
 def list_game(arrKepemilikan, arrGame, user_id) :
     data_game = []

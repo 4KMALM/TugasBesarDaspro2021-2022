@@ -77,4 +77,9 @@ def valid_item_in_arr(item,arr):
         return False
 
 # ----- Fungsi/Prosedur selain modul -----
-
+# validasi in array
+def isInList(nama,array) :
+    for i in array :
+        if nama == i :
+            return True
+    return False 

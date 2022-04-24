@@ -1,5 +1,5 @@
 import os
-from primitif_function import length
+from primitif_function import *
 
 
 # how to use
@@ -22,7 +22,7 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
     # Array
     ArrayFile = [(arrGame,'game.csv'),(arrUser,'user.csv'),(arrRiwayat,'riwayat.csv'),(arrKepemilikan,'kepemilikan.csv')]
     list_dir = os.listdir(os.getcwd())
-    if namafolder in list_dir :
+    if isInList(namafolder,list_dir) :
         os.chdir(namafolder)
         for file in ArrayFile :
             TabData = file[0]
@@ -33,10 +33,10 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
                 intro = ''
                 panjang = length(rekaman)
                 for indeks in range(panjang) :
-                    if indeks != panjang-1 :
-                        intro += str(rekaman[indeks]) + ','
-                    else :
+                    if indeks == panjang-1 :
                         intro += str(rekaman[indeks]) + '\n'
+                    else :
+                        intro += str(rekaman[indeks]) + ';'
                 f.write(intro)
             f.close()
     else :
@@ -51,10 +51,10 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
                 intro = ''
                 panjang = length(rekaman)
                 for indeks in range(panjang) :
-                    if indeks != panjang-1 :
-                        intro += str(rekaman[indeks]) + ','
-                    else :
+                    if indeks == panjang-1 :
                         intro += str(rekaman[indeks]) + '\n'
+                    else :
+                        intro += str(rekaman[indeks]) + ';'
                 f.write(intro)
             f.close()
     print("Data berhasil tersimpan.")
