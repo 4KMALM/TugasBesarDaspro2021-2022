@@ -14,7 +14,10 @@ def encrypt(password) :
 def decrypt(password) :
     pass
 
-def register(x,nama,username,password) :
+def register(x) :
+    nama = input("Masukkan nama anda : ")
+    username = input("Masukkan username anda : ")
+    password = input("Masukkan password anda : ")
     username_sama = True
     user_data = x[0]
     data_invalid = 0
@@ -25,7 +28,7 @@ def register(x,nama,username,password) :
             else :
                 pass
         if data_invalid != 0 :
-            print("Username tidak tersedia silahkan masukkan username yang lain", end=" : ")
+            print("Username tidak tersedia silahkan gunakan username lain", end=" : ")
             username = input()
             data_invalid = 0
         else :
@@ -38,3 +41,4 @@ def register(x,nama,username,password) :
     print()
     print("Pengguna berhasil ditambahkan!")
     return x
+
