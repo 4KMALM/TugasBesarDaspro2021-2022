@@ -1,15 +1,12 @@
-from primitif_function import *
+from F16_save import save
 
-def exit(x):
+def exit(nama):
     print("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)")
     pil_exit = input()
     if pil_exit == "Y" or pil_exit == "y" :
-        save() # Memanggil fungsi save
+        save()
     elif pil_exit == "N" or pil_exit == "n":
-        print("Program selesai dan tidak menyimpan data pada file.")
+        print(f"Data terbaru tidak tersimpan dalam file.\n\nSampai jumpa {nama}")
     else : #jika input != Y, y, n, atau N
-        exit(x)
+        exit()
     return
-
-exit(x)
-
