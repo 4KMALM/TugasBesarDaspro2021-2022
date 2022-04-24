@@ -11,8 +11,12 @@ def list_game(arrKepemilikan, arrGame, user_id) :
     if length(data_game) == 0 :
         print("Maaf kamu belum membeli game, silahkan beli game terlebih dahulu")
     else :
+        print("List yang game anda miliki : ")
+        print("{:<4}| {:<8} | {:<36}| {:<14} | {:<5} | {:<8}".format('No','GAMEID','Nama Game','Kategori','Tahun','Harga'))
+        n = 1
         for game in game_data :
             if game[0] in data_game :
-                print("| {:<8}| {:<36}| {:<14}| {:<4}| {:<8}".format(game[0],game[1],game[2],game[3],game[4]))
+                print("{:<4}| {:<8} | {:<36}| {:<14} | {:<5} | {:<8}".format(str(n),game[0],game[1],game[2],game[3],game[4]))
+                n += 1
             else :
                 pass
