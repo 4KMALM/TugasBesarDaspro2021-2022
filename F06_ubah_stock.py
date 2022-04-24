@@ -2,7 +2,7 @@ from primitif_function import *
 
 
 def ubah_stock(arrGame):
-    id_game = input()
+    id_game = input("Masukan ID game: ")
     # temukan id
     search_found = get_idx(id_game,0,arrGame)
 
@@ -12,14 +12,19 @@ def ubah_stock(arrGame):
         name_game = get_thing_based(id_game,0,arrGame,1)
         init_stock = int(get_thing_based(id_game,0,arrGame,5))
 
-        stock_in = int(input())
+        stock_in = int(input("Masukan jumlah stok: "))
         
         if init_stock+stock_in < 0 :
             print(f"Stok game {name_game} gagal dikurangi karena stok kurang. Stok sekarang: {init_stock} (< {abs(stock_in)})")
         else:
             fnl_stock = init_stock + stock_in
             arrGame[0][id_found][5] = fnl_stock
-            print(f"Stok game {name_game} berhasil dikurangi. Stok sekarang: {fnl_stock}")
+            if stock_in < 0:
+                print(f"Stok game {name_game} berhasil dikurangi. Stok sekarang: {fnl_stock}")
+            elif stock_in == 0:
+                print(f"Stok game {name_game} tetap. Stok sekarang: {fnl_stock}")
+            else: 
+                print(f"Stok game {name_game} berhasil ditambah. Stok sekarang: {fnl_stock}")
     else:
         print("Tidak ada game dengan ID tersebut!")
     return(arrGame)

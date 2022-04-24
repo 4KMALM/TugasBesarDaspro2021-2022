@@ -41,7 +41,7 @@ def SearchInven(arrGame, arrMilik, userID):
         print("\nDaftar game pada inventory yang memenuhi kriteria:")
         for i in range(1,gameUser[1]+1):
             idx = gameUser[0][i]
-            if (ID == "" or ID == arrGame[0][idx][0]) and (tahun == "" or tahun == str(arrGame[0][idx][2])):
+            if (ID == "" or ID == arrGame[0][idx][0]) and (tahun == "" or tahun == str(arrGame[0][idx][3])):
                 n = n + 1
                 print('{:<4} {:^8} | {:^36} | {:^10} | {:^10} | {:^4}'.format((str(n)+'.'),arrGame[0][idx][0],arrGame[0][idx][1],str(arrGame[0][idx][4]),arrGame[0][idx][2],str(arrGame[0][idx][3])))
             

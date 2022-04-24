@@ -13,13 +13,13 @@ from primitif_function import length
 
 # digunakan khusus saving 4 file eksternal
 def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
+    namafolder = input("Masukkan nama folder penyimpanan: ")
     # Kamus Lokal
     # Array File : Array of tuple (TabData, SeqFile of Tab Data)
     # TabData 
     # namafile : string namafile (by default, nama.csv)
     # namafolder : string directory
     # Array
-    namafolder = input("Masukkan nama folder penyimpanan : ")
     ArrayFile = [(arrGame,'game.csv'),(arrUser,'user.csv'),(arrRiwayat,'riwayat.csv'),(arrKepemilikan,'kepemilikan.csv')]
     list_dir = os.listdir(os.getcwd())
     if namafolder in list_dir :
@@ -57,7 +57,7 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
                         intro += str(rekaman[indeks]) + '\n'
                 f.write(intro)
             f.close()
-
+    print("Data berhasil tersimpan.")
 """
 check = input()
 arrGame = [[['id,nama,kategori,tahun_rilis,harga,stock'], ['GAME001,Dying Light,2015,Shoting,250000,10'], ['GAME002,White Shadows,2016,Adventure,215000,15'], ['GAME003,BNMO - Play Along With Crypto,Adventure,2022,100000,1'], ['GAME004,Dasar Pemrograman,Coding,2021,0,10'], ['GAME005,Python Gemink,Coding,1991,69000,999'], ['GAME006,Daspro Impact,Coding,2018,50000,111', '']], 6]

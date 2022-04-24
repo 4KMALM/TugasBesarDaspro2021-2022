@@ -1,11 +1,24 @@
 import time
 
 def numGenerator(x) :
+    # kamus lokal
+    # x nilai pengali lcg
+    # pengali
+    # c inkremen
+    # modulo
     a = 589764
     c = 98076
-    return ((a*x)+c)%56784
+    m = 56784
+    return ((a*x)+c)%m
 
 def kerang_ajaib() :
+    # seed untuk lcg awal didapat dari nilai round monotonic time
+    # kemudian nilai randomized akan menjadi seed berikutnya
+    # nilai randomized akan dimodulo 10 untuk menjadi parameter random kerang ajaib
+    # kamus lokal 
+    # seed : integer
+    # n : integer
+    # pertanyaan
     permohonan = True
     seed = round(time.monotonic()) 
     while permohonan :
@@ -45,5 +58,3 @@ def kerang_ajaib() :
         elif check == 'n' :
             print("Kerang bilang \"sampai jumpa\"") 
             permohonan = False
-
-kerang_ajaib()

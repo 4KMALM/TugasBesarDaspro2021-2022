@@ -1,4 +1,7 @@
 game_id;nama;harga;user_id;tahun_beli
-GAME001;Dying Light;250000;1;2022
-GAME002;White Shadows;215000;1;2022
-GAME001;BNMO - Play Along With Crypto;100000;3;2020
+GAME001;Dying Light;250000;4;2015
+GAME001;Dying Light;250000;3;2013
+GAME002;White Shadows;215000;3;2016
+GAME003;BNMO - Play Along With Crypto;215000;5;100000
+GAME003;BNMO - Play Along With Crypto;215000;4;100000
+

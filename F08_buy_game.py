@@ -21,29 +21,26 @@ def buy_game(user_id, arrGame, arrUser, arrKepemilikan, arrRiwayat):
 # ALGORITMA
     id_game = input("Masukkan ID Game: ")
 
-    if not(search_found((id_game,0,arrGame))): # cek apakah id game tidak ada
+    if not(search_found(id_game,0,arrGame)): # cek apakah id game tidak ada
         print("Tidak ada game dengan id tersebut")
 
     else: # id_game tersedia di toko
         # list game yang dimiliki user
         gameUser = [[],0]
         for i in range(arrKepemilikan[1]):
-            if arrKepemilikan[0] == user_id:
-                gameUser[0] += ([arrKepemilikan[0]])
+            if arrKepemilikan[0][i][1] == user_id:
+                gameUser[0] += [[arrKepemilikan[0][i][0]]]
                 gameUser[1] += 1
+        gameUser[1] -= 1
     
-        gameFound = False
-        for i in range(gameUser[1]):
-            if id_game == gameUser[0][i]:
-                gameFound = True
-                break
+        gameFound = search_found(id_game,0,gameUser)
         
         if not(gameFound):
             print("Anda sudah memiliki Game tersebut!")
 
         else: # user belum memiliki game
             # Cek saldo yang dimiliki user
-            cekSldo = int(get_thing_based(id,0,arrUser,5))
+            cekSldo = int(get_thing_based(user_id,0,arrUser,5))
             # Cek harga game yang akan dibeli
             cekHrgaGm = int(get_thing_based(id_game,0,arrGame,4))
 

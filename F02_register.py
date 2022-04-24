@@ -1,9 +1,14 @@
 from primitif_function import *
 import time 
 
+"""
+def ind(char) :
+    kumpulan_elemen = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9','_'
+                       'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                       'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 def encrypt(password) :
-    a = 12345
-    b = 3334
+    a = 73
+    b = 20
     c = ""
     for i in password :
         x = ord(i) - ord("0")
@@ -12,12 +17,22 @@ def encrypt(password) :
     return c
 
 def decrypt(password) :
-    pass
+    a = 37
+    b = 20
+    c = ''
+    for i in password :
+        y = ord(i) - ord('0')
+        x = a*(y-b)%75 + 48
+        c += chr(x)
+    return c
+"""
 
-def register(x,nama,username,password) :
+def register(x) :
+    nama = input("Masukkan nama anda : ")
+    username = input("Masukkan username anda : ")
+    password = input("Masukkan password anda : ")
     username_sama = True
     user_data = x[0]
-    banyak_user = x[1]
     data_invalid = 0
     while username_sama :
         for data in user_data :
@@ -26,7 +41,7 @@ def register(x,nama,username,password) :
             else :
                 pass
         if data_invalid != 0 :
-            print("Username tidak tersedia silahkan masukkan username yang lain", end=" : ")
+            print("Username tidak tersedia silahkan gunakan username lain", end=" : ")
             username = input()
             data_invalid = 0
         else :
@@ -39,3 +54,32 @@ def register(x,nama,username,password) :
     print()
     print("Pengguna berhasil ditambahkan!")
     return x
+
+"""
+def gcd(a,b) :
+    if (b==0):
+        return a
+    else:
+        return gcd(b,a%b)
+
+def coprime(b) :
+    list = []
+    a = 1 
+    while a <= 75 :
+        x = gcd(a,b)
+        if x == 1 :
+            list += [a]
+        a += 1
+    return list
+
+def modInv(a,b) :
+    c = 1 
+    while  c <= b :
+        x = (a*c)%b
+        if x == 1 :
+            return c
+        else :
+            pass
+        c += 1
+"""
+
