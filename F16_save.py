@@ -29,14 +29,14 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
             namafile = file[1]
             Array = TabData[0]
             f = open(namafile,'w')
-            for rekaman in Array :
+            for i in length(Array) :
                 intro = ''
-                panjang = length(rekaman)
+                panjang = length(Array[i])
                 for indeks in range(panjang) :
                     if indeks == panjang-1 :
-                        intro += str(rekaman[indeks]) + '\n'
+                        intro += str(Array[i][indeks]) + '\n'
                     else :
-                        intro += str(rekaman[indeks]) + ';'
+                        intro += str(Array[i][indeks]) + ';'
                 f.write(intro)
             f.close()
     else :
@@ -47,14 +47,14 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
             namafile = file[1]
             Array = TabData[0]
             f = open(namafile,'x')
-            for rekaman in Array :
+            for i in length(Array) :
                 intro = ''
-                panjang = length(rekaman)
+                panjang = length(Array[i])
                 for indeks in range(panjang) :
                     if indeks == panjang-1 :
-                        intro += str(rekaman[indeks]) + '\n'
+                        intro += str(Array[i][indeks]) + '\n'
                     else :
-                        intro += str(rekaman[indeks]) + ';'
+                        intro += str(Array[i][indeks]) + ';'
                 f.write(intro)
             f.close()
     print("Data berhasil tersimpan.")
