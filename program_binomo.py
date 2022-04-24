@@ -7,7 +7,7 @@ from F06_ubah_stock import ubah_stock
 from F07_list_game_toko import list_game_toko
 from F08_buy_game import buy_game
 from F09_list_game import list_game
-from F10_search_my_game import search_my_game
+from F10_search_my_game import SearchInven
 from F11_search_game_at_store import search_game_at_store
 from F12_topup import topup
 from F13_riwayat import riwayat
@@ -79,7 +79,7 @@ elif path_folder != None:
                     list_game(arrKepemilikan,arrGame,pengguna[0])
                 
                 elif user_input == "search_my_game":
-                    search_my_game(arrGame,arrKepemilikan,pengguna[0])
+                    SearchInven(arrGame,arrKepemilikan,pengguna[0])
 
                 elif user_input == "riwayat":
                     riwayat(arrRiwayat, pengguna[0])
