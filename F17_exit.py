@@ -10,3 +10,5 @@ def exit(nama):
     else : #jika input != Y, y, n, atau N
         exit()
     return
+
+
