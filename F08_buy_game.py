@@ -1,6 +1,3 @@
-from primitif_function import *
-import datetime
-
 def buy_game(user_id, arrGame, arrUser, arrKepemilikan, arrRiwayat):
 # KAMUS LOKAL
 # type user : <id, username, nama, password, role, saldo : string
@@ -30,7 +27,7 @@ def buy_game(user_id, arrGame, arrUser, arrKepemilikan, arrRiwayat):
     else: # id_game tersedia di toko
         # list game yang dimiliki user
         gameUser = [[],0]
-        for i in range(arrKepemilikan[1]):
+        for i in range(1,arrKepemilikan[1]+1):
             if arrKepemilikan[0][i][1] == user_id:
                 gameUser[0] += [[arrKepemilikan[0][i][0]]]
                 gameUser[1] += 1
@@ -38,7 +35,7 @@ def buy_game(user_id, arrGame, arrUser, arrKepemilikan, arrRiwayat):
     
         gameFound = search_found(id_game,0,gameUser)
         
-        if not(gameFound):
+        if gameFound:
             print("Anda sudah memiliki Game tersebut!")
 
         else: # user belum memiliki game
@@ -69,4 +66,3 @@ def buy_game(user_id, arrGame, arrUser, arrKepemilikan, arrRiwayat):
                     arrKepemilikan[0] += [[id_game,user_id]] # Menambah game ke daftar kepemilikan user
                     arrRiwayat[0] += [[id_game, nmGame, cekHrgaGm, user_id, year_now]]
                     print(f"Game {nmGame} berhasil dibeli")
-    return(arrGame, arrUser, arrKepemilikan, arrRiwayat)
