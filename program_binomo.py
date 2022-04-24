@@ -8,6 +8,7 @@ from F07_list_game_toko import list_game_toko
 from F08_buy_game import buy_game
 from F09_list_game import list_game
 from F12_topup import topup
+from F13_riwayat import riwayat
 from F14_help import help
 from F15_load import load
 from F16_save import save
@@ -77,7 +78,7 @@ elif path_folder != None:
                     pass
 
                 elif user_input == "riwayat":
-                    # riwayat()
+                    riwayat(arrRiwayat,pengguna[0])
                     # pakai arrRiwayat 
                     pass
 
