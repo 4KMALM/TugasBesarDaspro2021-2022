@@ -72,13 +72,10 @@ def sorted_data(list_baru, data, param):  # sorting data
 
 
 def outputing_(arr):  # output
+    print("{:<4}|{:^9}|{:^36}|{:^16}|{:^13}|{:^11}|{:^6}|".format("No","ID Game","Nama Game","Kategori","Tahun Rilis","Harga","stok"))
+    print("-"*102)
     for i in range(length(arr)):
-        for j in range(6):
-            if j != 5:
-                print(arr[i][j], end=" | ")
-            else:
-                print(arr[i][j])
-
+        print("{:<4}|{:<9}|{:<36}|{:<16}|{:<13}|{:<11}|{:<6}|".format(f"{i}.",arr[i][0],arr[i][1],arr[i][2],arr[i][3],arr[i][4],arr[i][5]))
 
 def list_game_toko(arr_of_arr):
     game_data = arr_of_arr[0]
@@ -97,6 +94,7 @@ def list_game_toko(arr_of_arr):
     if checking(sort_scheme, list_skema) and checking(cond_ad, list_ad):
         list_baru = arranging_(list_of_option(game_data, sort_scheme), cond_ad)
         new_sorted_data = sorted_data(list_baru, game_data, sort_scheme)
+        print(new_sorted_data)
         outputing_(new_sorted_data)
     elif skema == "":
         outputing_(game_data)
@@ -104,4 +102,4 @@ def list_game_toko(arr_of_arr):
         print("masukan tidak valid")
 
 # ----cek-----
-# print(list_game_toko([[['id', 'nama', 'kategori', 'tahun_rilis', 'harga', 'stock'], ['GAME001', 'Dying Light', 'Shoting', '2015', '250000', '10'], ['GAME002', 'White Shadows', 'Adventure', '2016', '215000', '15'], ['GAME003', 'BNMO - Play Along With Crypto', 'Adventure', '2022', '100000', '1'], ['GAME004', 'Dasar Pemrograman', 'Coding', '2021', '0', '10'], ['GAME005', 'Python Gemink', 'Coding', '1991', '69000', '999'], ['GAME006', 'Daspro Impact', 'Coding', '2018', '50000', '111']], 6]))
+# list_game_toko([[['id', 'nama', 'kategori', 'tahun_rilis', 'harga', 'stock'], ['GAME001', 'Dying Light', 'Shoting', '2015', '250000', '10'], ['GAME002', 'White Shadows', 'Adventure', '2016', '215000', '15'], ['GAME003', 'BNMO - Play Along With Crypto', 'Adventure', '2022', '100000', '1'], ['GAME004', 'Dasar Pemrograman', 'Coding', '2021', '0', '10'], ['GAME005', 'Python Gemink', 'Coding', '1991', '69000', '999'], ['GAME006', 'Daspro Impact', 'Coding', '2018', '50000', '111']], 6])
