@@ -1,3 +1,5 @@
+from F02_register import decrypt
+
 def login(pengguna, arrUser):
     username = input("Masukan username: ")
     password = input("Masukan password: ")
@@ -6,7 +8,7 @@ def login(pengguna, arrUser):
     # pengguna = ['id','username','nama','password','role','saldo']
 
     for i in range(1, arrUser[1]+1):
-        if arrUser[0][i][1] == username and arrUser[0][i][3] == password:
+        if arrUser[0][i][1] == username and arrUser[0][i][3] == password :
             pengguna = arrUser[0][i]
             break
     

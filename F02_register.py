@@ -1,6 +1,11 @@
 from primitif_function import *
 import time 
 
+"""
+def ind(char) :
+    kumpulan_elemen = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9','_'
+                       'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                       'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 def encrypt(password) :
     a = 73
     b = 20
@@ -20,6 +25,7 @@ def decrypt(password) :
         x = a*(y-b)%75 + 48
         c += chr(x)
     return c
+"""
 
 def register(x) :
     nama = input("Masukkan nama anda : ")
@@ -76,3 +82,4 @@ def modInv(a,b) :
             pass
         c += 1
 """
+
