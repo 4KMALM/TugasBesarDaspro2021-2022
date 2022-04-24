@@ -1,5 +1,3 @@
-from F02_register import decrypt
-
 def login(pengguna, arrUser):
     username = input("Masukan username: ")
     password = input("Masukan password: ")
