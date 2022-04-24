@@ -45,5 +45,3 @@ def kerang_ajaib() :
         elif check == 'n' :
             print("Kerang bilang \"sampai jumpa\"") 
             permohonan = False
-
-kerang_ajaib()
