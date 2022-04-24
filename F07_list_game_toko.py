@@ -1,6 +1,5 @@
 from primitif_function import *
 
-
 def checking(argument, arr):
     val = False
     for i in arr:
@@ -14,13 +13,13 @@ def checking(argument, arr):
 
 def list_of_option(data, param):  # looking for option
     list_ = []
-    if param == "Tahun":
+    if param == "Tahun" or param == "tahun":
         for i in range(1, length(data)):
             if checking(data[i][3], list_) is True:
                 pass
             else:
                 list_ += [int(data[i][3])]
-    elif param == "Harga":
+    elif param == "Harga" or param == "harga":
         for i in range(1, length(data)):
             if checking(data[i][4], list_) is True:
                 pass
@@ -53,7 +52,7 @@ def arranging_(arr, ad):  # arranging option
 def sorted_data(list_baru, data, param):  # sorting data
     length_data = length(data)
     new_data = []
-    if param == "Tahun":
+    if param == "Tahun" or param == "tahun":
         for isi in list_baru:
             for i in range(1, length_data):
                 if data[i][3] == str(isi):
@@ -61,7 +60,7 @@ def sorted_data(list_baru, data, param):  # sorting data
                         pass
                     else:
                         new_data += [data[i]]
-    elif param == "Harga":
+    elif param == "Harga" or param == "harga":
         for isi in list_baru:
             for i in range(1, length_data):
                 if data[i][4] == str(isi):
@@ -85,7 +84,7 @@ def list_game_toko(arr_of_arr):
     game_data = arr_of_arr[0]
     list_skema = ["Tahun", "Harga", "tahun", "harga"]
     list_ad = ["+", "-"]
-    skema = input()
+    skema = input("Skema sorting: ")
 
     if length(skema) > 2:
         length_scheme = length(skema)
@@ -103,3 +102,6 @@ def list_game_toko(arr_of_arr):
         outputing_(game_data)
     else:
         print("masukan tidak valid")
+
+# ----cek-----
+# print(list_game_toko([[['id', 'nama', 'kategori', 'tahun_rilis', 'harga', 'stock'], ['GAME001', 'Dying Light', 'Shoting', '2015', '250000', '10'], ['GAME002', 'White Shadows', 'Adventure', '2016', '215000', '15'], ['GAME003', 'BNMO - Play Along With Crypto', 'Adventure', '2022', '100000', '1'], ['GAME004', 'Dasar Pemrograman', 'Coding', '2021', '0', '10'], ['GAME005', 'Python Gemink', 'Coding', '1991', '69000', '999'], ['GAME006', 'Daspro Impact', 'Coding', '2018', '50000', '111']], 6]))
