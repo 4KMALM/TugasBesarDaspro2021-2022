@@ -111,6 +111,7 @@ elif path_folder != None:
             elif user_input == "help":
                 help(isLogin,pengguna[4])
             elif user_input == "exit":
-                exitGame == True
+                exitGame = True
+                print("Selamat tinggal")
             else:
                 print("Masukan anda tidak dikenali.\nKetik \"help\" untuk panduan penggunaan \"Binomo\"")
