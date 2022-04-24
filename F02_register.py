@@ -62,7 +62,7 @@ def register(x) :
     data_invalid = 0
     while username_sama :
         for data in user_data :
-            if username == data[1] :
+            if (username == data[1] or isInList(' ', username) or username == "") :
                 data_invalid += 1
             else :
                 pass
@@ -73,11 +73,10 @@ def register(x) :
         else :
             print("Username tersedia!, silahkan menunggu proses")
             username_sama = False
-    new_data = [ str(x[1]+1), username, nama, password,"User","0"]
+    new_data = [ str(x[1]+1), username, nama, password,"user","0"]
     user_data += [new_data]
     x[1] += 1
     time.sleep(3)
     print()
     print("Pengguna berhasil ditambahkan!")
     return x
-
