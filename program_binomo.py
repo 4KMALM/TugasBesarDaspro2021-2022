@@ -12,7 +12,7 @@ from F11_search_game_at_store import search_game_at_store
 from F12_topup import topup
 from F13_riwayat import riwayat
 from F14_help import help
-from F15_load import load
+from F15_load import load, buat_tabData
 from F16_save import save
 from F17_exit import exit
 

@@ -2,6 +2,32 @@ from primitif_function import *
 import time 
 
 """
+def gcd(a,b) :
+    if (b==0):
+        return a
+    else:
+        return gcd(b,a%b)
+
+def coprime(b) :
+    list = []
+    a = 1 
+    while a <= 75 :
+        x = gcd(a,b)
+        if x == 1 :
+            list += [a]
+        a += 1
+    return list
+
+def modInv(a,b) :
+    c = 1 
+    while  c <= b :
+        x = (a*c)%b
+        if x == 1 :
+            return c
+        else :
+            pass
+        c += 1
+
 def ind(char) :
     kumpulan_elemen = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9','_'
                        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
@@ -54,32 +80,4 @@ def register(x) :
     print()
     print("Pengguna berhasil ditambahkan!")
     return x
-
-"""
-def gcd(a,b) :
-    if (b==0):
-        return a
-    else:
-        return gcd(b,a%b)
-
-def coprime(b) :
-    list = []
-    a = 1 
-    while a <= 75 :
-        x = gcd(a,b)
-        if x == 1 :
-            list += [a]
-        a += 1
-    return list
-
-def modInv(a,b) :
-    c = 1 
-    while  c <= b :
-        x = (a*c)%b
-        if x == 1 :
-            return c
-        else :
-            pass
-        c += 1
-"""
 

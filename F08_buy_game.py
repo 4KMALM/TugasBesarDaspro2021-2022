@@ -1,3 +1,6 @@
+from primitif_function import *
+import datetime
+
 def buy_game(user_id, arrGame, arrUser, arrKepemilikan, arrRiwayat):
 # KAMUS LOKAL
 # type user : <id, username, nama, password, role, saldo : string
