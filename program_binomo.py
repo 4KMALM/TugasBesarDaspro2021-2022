@@ -7,6 +7,8 @@ from F06_ubah_stock import ubah_stock
 from F07_list_game_toko import list_game_toko
 from F08_buy_game import buy_game
 from F09_list_game import list_game
+from F10_search_my_game import search_my_game
+from F11_search_game_at_store import search_game_at_store
 from F12_topup import topup
 from F13_riwayat import riwayat
 from F14_help import help
@@ -23,7 +25,7 @@ import time
 path_folder = load()
 
 if path_folder == None:
-    print()
+    pass
 elif path_folder != None:
     print("Mohon tunggu")
     # sys.stdout.write("Loading")
@@ -37,8 +39,10 @@ elif path_folder != None:
     print("\nSelamat datang di antarmuka \"Binomo\"")
 
     # Pembuatan memori
+    # Setiap array pasti memiliki 1 data yaitu header, kecuali
+    # Array user pasti memiliki 2 data yaitu header dan 1 data terdefinisi
     arrGame = buat_tabData(os.path.join(path_folder, 'game.csv'))
-    arrUser = buat_tabData(os.path.join(path_folder, 'user.csv'))
+    arrUser = buat_tabData(os.path.join(path_folder, 'user.csv')) 
     arrRiwayat = buat_tabData(os.path.join(path_folder, 'riwayat.csv'))
     arrKepemilikan = buat_tabData(os.path.join(path_folder, 'kepemilikan.csv'))
     
@@ -71,23 +75,20 @@ elif path_folder != None:
 
                 elif user_input == "list_game":
                     list_game(arrKepemilikan,arrGame,pengguna[0])
+                    pass
                 
                 elif user_input == "search_my_game":
-                    # search_my_game()
-                    # pakai arrKepemilikan dan arrGame
-                    pass
+                    search_my_game(arrGame,arrKepemilikan,pengguna[0])
 
                 elif user_input == "riwayat":
-                    riwayat(arrRiwayat,pengguna[0])
-                    # pakai arrRiwayat 
+                    riwayat(arrRiwayat, pengguna[0])
                     pass
 
                 elif user_input == "list_game_toko":
                     list_game_toko(arrGame)
 
                 elif user_input == "search_game_at_store":
-                    # search_game_at_store()
-                    # pakai arrGame
+                    search_game_at_store(arrGame)
                     pass
             
                 elif user_input == "save":
@@ -111,4 +112,4 @@ elif path_folder != None:
             elif user_input == "help":
                 help(isLogin,pengguna[4])
             else:
-                print("Masukan anda tidak dikenali.\nKetik \"help\" untuk panduan penggunaan BINOMO")
+                print("Masukan anda tidak dikenali.\nKetik \"help\" untuk panduan penggunaan \"Binomo\"")
