@@ -1,15 +1,15 @@
 import time
 
 def numGenerator(x) :
-    a = 5897642
+    a = 589764
     c = 98076
-    return ((a*x)+c)%5678
+    return ((a*x)+c)%56784
 
 def kerang_ajaib() :
     permohonan = True
-    seed = round(time.time()) 
+    seed = round(time.monotonic()) 
     while permohonan :
-        pertanyaan = input("silahkan bertanya pada kerang : ")
+        pertanyaan = input("silahkan bertanya pada kerang : ").lower()
         randomized = (numGenerator(seed))
         n = randomized%10
         if type(pertanyaan) != None :
@@ -26,9 +26,9 @@ def kerang_ajaib() :
             elif n == 5 :
                 print("Mungkin, tapi sepertinya iya.")
             elif n == 6 :
-                print("Pertanyaan aneh, tapi iya")
-            elif n == 7 :
                 print("Pertanyaan aneh, tapi tidak.")
+            elif n == 7 :
+                print("Pertanyaan aneh, tapi iya.")
             elif n == 8 :
                 print("TIDAK TIDAK TIDAK.")
             elif n == 9 :
@@ -36,12 +36,14 @@ def kerang_ajaib() :
         else :
             pass
         print("PUJA KERANG AJAIB!!!!!!")
-        seed = round(time.time()) + n
+        seed = randomized
         check = input("Apakah anda masih memerlukan petunjuk dari kerang (y/n) ? ").lower()
+        while check not in ['y','n'] :
+            check = input("Kerang bilang \'ulangi lagi\' : ")
         if check == 'y' :
-            print("===============================================================")
-            print()
+            print('===================================================')
         elif check == 'n' :
+            print("Kerang bilang \"sampai jumpa\"") 
             permohonan = False
 
 kerang_ajaib()
