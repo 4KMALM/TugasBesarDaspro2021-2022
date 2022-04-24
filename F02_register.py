@@ -17,7 +17,6 @@ def decrypt(password) :
 def register(x,nama,username,password) :
     username_sama = True
     user_data = x[0]
-    banyak_user = x[1]
     data_invalid = 0
     while username_sama :
         for data in user_data :
