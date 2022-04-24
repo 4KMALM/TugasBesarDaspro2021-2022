@@ -27,3 +27,8 @@ def load():
 # $ python F15-load.py nama_folder
 # ouput; print(load())
 # Disk:/..pathfolder../nama_folder
+
+
+
+
+
