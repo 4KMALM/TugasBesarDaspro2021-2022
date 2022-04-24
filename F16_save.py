@@ -33,8 +33,10 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
                 intro = ''
                 panjang = length(Array[i])
                 for indeks in range(panjang) :
-                    if indeks == panjang-1 :
+                    if (indeks == panjang-1 and i != length(Array) - 1) :
                         intro += str(Array[i][indeks]) + '\n'
+                    elif (indeks == panjang-1 and i == length(Array) - 1) :
+                        intro += str(Array[i][indeks]) 
                     else :
                         intro += str(Array[i][indeks]) + ';'
                 f.write(intro)
@@ -51,8 +53,10 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
                 intro = ''
                 panjang = length(Array[i])
                 for indeks in range(panjang) :
-                    if indeks == panjang-1 :
+                    if (indeks == panjang-1 and i != length(Array) - 1) :
                         intro += str(Array[i][indeks]) + '\n'
+                    elif (indeks == panjang-1 and i == length(Array) - 1) :
+                        intro += str(Array[i][indeks]) 
                     else :
                         intro += str(Array[i][indeks]) + ';'
                 f.write(intro)
