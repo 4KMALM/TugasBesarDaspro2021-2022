@@ -12,7 +12,7 @@ def FindGame(arrGame, ID):
         i = -1
     return i
 
-def UbahGame(arrGame):
+def ubah_game(arrGame):
 # I.S. array daftar terdefinisi. F.S. elemen array daftar diperbarui berdasarkan masukan pengguna
 
 # KAMUS LOKAL
@@ -56,3 +56,4 @@ def UbahGame(arrGame):
         print("Mengubah data dibatalkan")
     
     return arrGame
+
