@@ -11,3 +11,4 @@ def exit(nama,arrGame, arrUser, arrRiwayat, arrKepemilikan):
     else : #jika input != Y, y, n, atau N
         exit(nama,arrGame, arrUser, arrRiwayat, arrKepemilikan)
     return
+
