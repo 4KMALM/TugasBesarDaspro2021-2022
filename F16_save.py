@@ -29,7 +29,7 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
             namafile = file[1]
             Array = TabData[0]
             f = open(namafile,'w')
-            for i in length(Array) :
+            for i in range(length(Array)) :
                 intro = ''
                 panjang = length(Array[i])
                 for indeks in range(panjang) :
@@ -47,7 +47,7 @@ def save(arrGame, arrUser, arrRiwayat, arrKepemilikan) :
             namafile = file[1]
             Array = TabData[0]
             f = open(namafile,'x')
-            for i in length(Array) :
+            for i in range(length(Array)) :
                 intro = ''
                 panjang = length(Array[i])
                 for indeks in range(panjang) :
