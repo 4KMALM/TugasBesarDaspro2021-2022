@@ -2,8 +2,8 @@ from primitif_function import *
 import time 
 
 def encrypt(password) :
-    a = 12345
-    b = 3334
+    a = 73
+    b = 20
     c = ""
     for i in password :
         x = ord(i) - ord("0")
@@ -12,7 +12,14 @@ def encrypt(password) :
     return c
 
 def decrypt(password) :
-    pass
+    a = 37
+    b = 20
+    c = ''
+    for i in password :
+        y = ord(i) - ord('0')
+        x = a*(y-b)%75 + 48
+        c += chr(x)
+    return c
 
 def register(x) :
     nama = input("Masukkan nama anda : ")
@@ -42,4 +49,30 @@ def register(x) :
     print("Pengguna berhasil ditambahkan!")
     return x
 
+"""
+def gcd(a,b) :
+    if (b==0):
+        return a
+    else:
+        return gcd(b,a%b)
 
+def coprime(b) :
+    list = []
+    a = 1 
+    while a <= 75 :
+        x = gcd(a,b)
+        if x == 1 :
+            list += [a]
+        a += 1
+    return list
+
+def modInv(a,b) :
+    c = 1 
+    while  c <= b :
+        x = (a*c)%b
+        if x == 1 :
+            return c
+        else :
+            pass
+        c += 1
+"""
