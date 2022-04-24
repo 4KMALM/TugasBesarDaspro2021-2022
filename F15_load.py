@@ -1,70 +1,116 @@
-import argparse
+from primitif_function import *
+from F02_register import register
+from F03_login import login
+from F04_tambah_game import tambah_game
+from F05_ubah_game import ubah_game
+from F06_ubah_stock import ubah_stock
+from F07_list_game_toko import list_game_toko
+from F08_buy_game import buy_game
+from F09_list_game import list_game
+from F10_search_my_game import search_my_game
+from F11_search_game_at_store import search_game_at_store
+from F12_topup import topup
+from F13_riwayat import riwayat
+from F14_help import help
+from F15_load import load,load_DaaftarData
+from F16_save import save
+from F17_exit import exit
+
+from B02_magic_shell import kerang_ajaib
+
 import os
+import sys
+import time
 
-# ------- Prosedur load() -------
-def load():
-# Input : -
-# output : 
-# JIka nama folder ada : sebuah path folder, dengan folder pasti berisi file yang akan digunakan
-# JIka tidak dikembalikan sebuah None type
+path_folder = load()
 
-    parser = argparse.ArgumentParser()  
-    parser.add_argument("folder", type = str, nargs="?")    # Menerima masukan string (tanpa spce) ketika program dijalankan
-    args = parser.parse_args()
+if path_folder == None:
+    pass
+elif path_folder != None:
+    # Loading Screen
+    print("Mohon tunggu")
+    time.sleep(1)
+    for i in ("Loading"):
+        sys.stdout.write(i)
+        sys.stdout.flush()
+        time.sleep(0.3)
+    for i in range(3):
+        sys.stdout.write('.')
+        sys.stdout.flush()
+        time.sleep(0.8)
+    print("\nSelamat datang di antarmuka \"Binomo\"")
 
-    if args.folder != None: # JIka args diberikan suatu nilai
-        for dirpath, dirnames, filenames in os.walk(os.getcwd()):   # pencarian nama folder
-            for dir in dirnames:
-                if dir == args.folder:
-                    break
+    # Pembuatan memori
+    # Setiap array pasti memiliki 1 data yaitu header, kecuali
+    # Array user pasti memiliki 2 data yaitu header dan 1 data terdefinisi
+    arrGame = load_DaaftarData(os.path.join(path_folder, 'game.csv'))
+    arrUser = load_DaaftarData(os.path.join(path_folder, 'user.csv')) 
+    arrRiwayat = load_DaaftarData(os.path.join(path_folder, 'riwayat.csv'))
+    arrKepemilikan = load_DaaftarData(os.path.join(path_folder, 'kepemilikan.csv'))
+    
+    # Inisialisasi
+    isLogin = False; exitGame = False; pengguna = ['id', 'username', 'nama', 'password', 'role', 'saldo']
 
-            if dir == args.folder:
-                return os.path.join(dirpath,args.folder)
-                break
-        else: 
-            print(f"Folder \"{args.folder}\" tidak ditemukan.")
-    else: # Jika args empty string
-        print("Tidak ada nama folder yang diberikan!")
+    while not(exitGame): 
+        user_input = input(">>> ")
 
-# REALISASI
-# $ python F15-load.py nama_folder
-# ouput; print(load())
-# Disk:/..pathfolder../nama_folder
+        if isLogin :
+            if validasi_input(user_input, pengguna[4]) :
+                if user_input == "register":
+                    register(arrUser)
 
-def buat_tabData(data):
-    # Buat struktur ([list],Neff)
-    sum_line = 0
-    with open(data, 'r') as f:
-        for line in f:
-            sum_line += 1
+                elif user_input == "tambah_game":
+                    tambah_game(arrGame)
+                    
+                elif user_input == "ubah_stok":
+                    ubah_stock(arrGame)
 
-    # sum_line - 1 = 0 maka data kosong (hanya header)
-    tabData = [[[] for i in range(sum_line)], sum_line-1]
-    # mengakses tabData = ([listData],Neff)
-    # tabData[0] -> akses listData; tabData[1] -> akses Neff
-    nextline = '\n'; delimiter = ';'
-    nLine = 0
-    temp = ''
-    with open(data, 'r') as f:
-        for line in f:
-            for char in line:
-                if char == delimiter or char == nextline:
-                    tabData[0][nLine] += [temp]
-                    temp = ""
-                else:
-                    temp += char
-            nLine += 1
-        tabData[0][nLine-1] += [temp] # last temp
-    return tabData 
+                elif user_input == "topup":
+                    topup(arrUser)
+                
+                elif user_input == "ubah_game":
+                    ubah_game(arrGame)
 
-# KEPERLUAN TESTER
-# print(buat_tabData("game.csv"))
-# [[['id', 'nama', 'kategori', 'tahun_rilis', 'harga', 'stock'], ['GAME001', 'Dying Light', 'Shoting', '2015', '250000', '10'], ['GAME002', 'White Shadows', 'Adventure', '2016', '215000', '15'], ['GAME003', 'BNMO - Play Along With Crypto', 'Adventure', '2022', '100000', '1'], ['GAME004', 'Dasar Pemrograman', 'Coding', '2021', '0', '10'], ['GAME005', 'Python Gemink', 'Coding', '1991', '69000', '999'], ['GAME006', 'Daspro Impact', 'Coding', '2018', '50000', '111']], 6]
-# Ket: 1 : ada 1 data (selain judul)
-# print(buat_tabData('user.csv'))
-# [[['id', 'username', 'nama', 'password', 'role', 'saldo'], ['1', 'fabian_si_banyak_fansnya00', 'Fabian Savero', 'yukmainbinomo', 'user', '100000'], ['2', 'akmal_ma', 'Akmal', 'akumaru', 'admin', '0'], ['3', 'username1', 'Zakariyya Gambetta', 'pass1', 'admin', '0'], ['4', 'username2', 'Margaretha Olivia', 'pass2', 'admin', '0'], ['5', 'username3', 'Kinanti Wening Asih', 'pass3', 'user', '10000000'], ['6', 'username4', 'Nadine Aliya Putri', 'pass4', 'user', '0']], 6]
-# Ket: 2 : ada 2 data (selain judul)
-# print(buat_tabData('riwayat.csv'))
-# [[['game_id', 'nama', 'harga', 'user_id', 'tahun_beli'], ['GAME001', 'Dying Light', '250000', '1', '2022'], ['GAME002', 'White Shadows', '215000', '1', '2022'], ['GAME001', 'BNMO - Play Along With Crypto', '100000', '3', '2020']], 3]
-# print(buat_tabData('kepemilikan.csv'))
-# [[['game_id', 'user_id'], ['GAME001', '1'], ['GAME002', '2'], ['GAME003', '2'], ['GAME001', '3'], ['GAME004', '1'], ['GAME005', '1']], 6]
+                elif user_input == "buy_game":
+                    buy_game(pengguna[0], arrGame, arrUser, arrKepemilikan, arrRiwayat)
+
+                elif user_input == "list_game":
+                    list_game(arrKepemilikan,arrGame,pengguna[0])
+                
+                elif user_input == "search_my_game":
+                    search_my_game(arrGame,arrKepemilikan,pengguna[0])
+
+                elif user_input == "riwayat":
+                    riwayat(arrRiwayat, pengguna[0])
+
+                elif user_input == "list_game_toko":
+                    list_game_toko(arrGame)
+
+                elif user_input == "search_game_at_store":
+                    search_game_at_store(arrGame)
+            
+                elif user_input == "save":
+                    save(arrGame, arrUser, arrRiwayat, arrKepemilikan)
+
+                elif user_input == "exit":
+                    exit(pengguna[2],arrGame, arrUser, arrRiwayat, arrKepemilikan)
+                    exitGame = True
+
+                elif user_input == "help":
+                    help(isLogin,pengguna[4])
+                
+                elif user_input == "kerangajaib":
+                    kerang_ajaib()
+
+        else:
+            if user_input == "login":
+                pengguna = login(pengguna,arrUser)
+                if pengguna != ['id', 'username', 'nama', 'password', 'role', 'saldo']:
+                    isLogin = True
+            elif user_input == "help":
+                help(isLogin,pengguna[4])
+            elif user_input == "exit":
+                exitGame = True
+                print("Selamat tinggal")
+            else:
+                print("Masukan anda tidak dikenali.\nKetik \"help\" untuk panduan penggunaan \"Binomo\"")
