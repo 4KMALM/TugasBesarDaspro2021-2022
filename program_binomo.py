@@ -93,7 +93,7 @@ elif path_folder != None:
                     save(arrGame, arrUser, arrRiwayat, arrKepemilikan)
 
                 elif user_input == "exit":
-                    exit(pengguna[2])
+                    exit(pengguna[2],arrGame, arrUser, arrRiwayat, arrKepemilikan)
                     exitGame = True
 
                 elif user_input == "help":
